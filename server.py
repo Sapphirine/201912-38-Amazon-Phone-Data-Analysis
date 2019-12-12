@@ -24,7 +24,7 @@ def index():
     SELECT
     distinct(brand)
     FROM
-    `amazon-phone.amazonphone1.test1`
+    `amazon-phone.amazonphone1.F1_Data`
 
     """
     query_job = bigquery_client.query(query)
@@ -39,54 +39,129 @@ def index():
 
 @app.route('/phone_recommend', methods=['POST'])
 def recommend():
-    query = """
-    SELECT
-    *
-    FROM
-    `amazon-phone.amazonphone1.F1_Data`
-    WHERE
-    brand=
-    """  + "\"" +str(request.json) + "\"" + " ORDER BY ratingNum DESC " \
-    + "LIMIT 10"
+    if request.json['brand'] == "Default" and request.json['price'] == "Default":
+        query = """
+        SELECT
+        *
+        FROM
+        `amazon-phone.amazonphone1.F1joinF3`
+        where reviewNum>=10
+        ORDER BY avg_sentimental_magnitude DESC
+        LIMIT 3
+        """
+
+    elif request.json['brand'] != "Default" and request.json['price'] == "Default":
+        query = """
+        SELECT
+        *
+        FROM
+        `amazon-phone.amazonphone1.F1joinF3`
+        WHERE reviewNum>=10 and 
+        brand=
+        """  + "\"" +str(request.json['brand']) + "\"" + " ORDER BY avg_sentimental_magnitude DESC " \
+        + "LIMIT 3"
+    elif  request.json['price'] != "Default":
+
+        if request.json['price'] == "<300":
+            where_sentence = "priceNum<=300"
+        elif request.json['price'] == "300-600":
+            where_sentence = "priceNum BETWEEN 300 AND 600"
+        elif request.json['price'] == "600-900":
+            where_sentence = "priceNum BETWEEN 600 AND 900"
+        elif request.json['price'] == ">900":
+            where_sentence = "priceNum>=900"
+
+        if request.json['brand'] == "Default":
+            query = """
+            SELECT
+            *
+            FROM
+            `amazon-phone.amazonphone1.F1joinF3`
+            WHERE reviewNum>=10 and 
+            """ + where_sentence + " ORDER BY avg_sentimental_magnitude DESC " \
+            + "LIMIT 3"
+        else:
+            query = """
+            SELECT
+            *
+            FROM
+            `amazon-phone.amazonphone1.F1joinF3`
+            WHERE reviewNum>=10 and brand=
+            """ + "\"" +str(request.json['brand']) + "\" AND " + where_sentence + " ORDER BY avg_sentimental_magnitude DESC " \
+            + "LIMIT 3"
+
     query_job = bigquery_client.query(query)
     result_data = []
     # # print("The query data:")
     for row in query_job:
-        result_data.append([row['asin'],row['ratingNum']])
-        # result_data[row['asin']] = {}
-        # for key, val in row.items():
-        #     result_data[row['asin']][key] = val
-    #     # Row values can be accessed by field name or index.
-    #     result_data.append(row)
-    #
-    # # # context = {"result": result_data}
-    # print(result_data)
+        print(row)
+        result_data.append({"link":row['url'], "brand": row['brand'], "title": row['title'],"rating": row['ratingNum'], "image_url": row['image'], "price": row['priceNum']})
     return jsonify(result=result_data)
 
 
-@app.route('/search', methods=['POST'])
-def search():
-    input = request.form['query']
+@app.route('/review_confidence', methods=['GET'])
+def get_credential_for_reviews():
     query = """
-        SELECT
-          *
-        FROM
-          `amazon-phone.amazonphone1.items_table`
-        where brand = 'ASUS'
-        LIMIT 
-    """ + input
+    SELECT
+    distinct(brand)
+    FROM
+    `amazon-phone.amazonphone1.F1joinF3`
 
+    """
     query_job = bigquery_client.query(query)
-    print(query_job)
-    # result_data = []
-    # # print("The query data:")
-    # for row in query_job:
-    #     # Row values can be accessed by field name or index.
-    #     result_data.append(row)
+    brand_list = []
+    # print("The query data:")
+    for row in query_job:
+        # Row values can be accessed by field name or index.
+        brand_list.append(row['brand'])
 
-    # context = {"result": result_data}
-    context = {}
-    return render_template("index.html", **context)
+    context = {"brand_list": brand_list}
+    return render_template("review_confidence.html", **context)
+
+@app.route('/get_products', methods=['POST'])
+def get_products():
+    query = """
+    SELECT
+    distinct(title)
+    FROM
+    `amazon-phone.amazonphone1.F1joinF3`
+    where brand=
+
+    """+ "\"" +str(request.json['brand']) + "\""
+    query_job = bigquery_client.query(query)
+    title_list = []
+    # print("The query data:")
+    for row in query_job:
+        # Row values can be accessed by field name or index.
+        title_list.append(row['title'])
+
+    context = {"product_list": title_list}
+    return jsonify(result=context)
+
+@app.route('/get_confidence', methods=['POST'])
+def get_confidence():
+    query = \
+    "select round(1-fake_cnt/cnt,2) as confidence from" + \
+    "(select title as title1, count(*) as cnt " + \
+    "from `amazon-phone.amazonphone1.F1joinF3` " + \
+    "group by title) t1" + \
+    "Inner join" + \
+    "(select title as title2, count(*) as fake_cnt" + \
+    "from `amazon-phone.amazonphone1.F1joinF3`" + \
+    "where rating=5 and sentimental_score<0.3" + \
+    "group by title) t2" + \
+    "on t1.title1 = t2.title2"\
+    + "where title1= \"" +str(request.json['product']) + "\""
+    query_job = bigquery_client.query(query)
+    title_list = []
+    # print("The query data:")
+    for row in query_job:
+        # Row values can be accessed by field name or index.
+        title_list.append(row['title'])
+
+    context = {"product_list": title_list}
+    return jsonify(result=context)
+
 
 
 

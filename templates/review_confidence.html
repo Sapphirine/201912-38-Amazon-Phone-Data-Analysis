@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script type="text/javascript" src="{{ url_for('static', filename='js/recommend.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/get_products_from_brand.js') }}"></script>
 </head>
 
 <body>
@@ -23,26 +24,22 @@
 <!--  </div>-->
 
 
-<select id = "brand_box">
+<select id = "brand_box" onchange="generateProducts()">
   <option value="Default" selected="selected">Default</option>
   {% for brand in brand_list %}
     <option value ={{brand}}>{{brand}}</option>
   {% endfor %}
 </select>
 
-<select id = "price_box">
-    <option value = "Default" selected="selected">Default</option>
-    <option value = "<300">$<300</option>
-    <option value = "300-600">$300-600</option>
-    <option value = "600-900">$600-900</option>
-    <option value = ">900">$>900</option>
+<select id = "product_box">
+
 </select>
 
-<input type="submit" value="Search" onclick="sendBrand()">
+<input type="submit" value="Search" onclick="getReviewConfidence()">
 
 <!--<p>Please make query: <input type="text" name="query"> <input type="submit" value="Search"></p>-->
 
-<p><a href="review_confidence">Go to the other page</a></p>
+<p><a href="\">Go back</a></p>
 
 <!--<div>-->
 <!--    {% for n in result %}-->
@@ -57,3 +54,4 @@
 
 
 </html>
+
