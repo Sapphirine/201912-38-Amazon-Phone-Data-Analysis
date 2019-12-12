@@ -1,0 +1,110 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bar.css') }}">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/F1_Handle.js') }}"></script>
+</head>
+
+<body>
+  <h1>Search page:</h1>
+  <div></div>
+
+<!--  <div>-->
+<!--    {% for n in data %}-->
+<!--    <div></div>-->
+<!--    {% endfor %}-->
+<!--  </div>-->
+
+
+<select id = "brand_box">
+  {% for brand in brand_list %}
+    <option value ={{brand}}>{{brand}}</option>
+  {% endfor %}
+</select>
+
+<input type="submit" value="Search" onclick="sendBrand()">
+
+<!--<p>Please make query: <input type="text" name="query"> <input type="submit" value="Search"></p>-->
+
+<p><a href="another">Go to the other page</a></p>
+
+<!--<div>-->
+<!--    {% for n in result %}-->
+<!--    <div>{{n}}</div>-->
+<!--    {% endfor %}-->
+<!--</div>-->
+<div id = "my_div"></div>
+    <div class="pricing-wrapper clearfix">
+        <!-- Titulo -->
+        <h1 class="pricing-table-title">Tabla de Precios <a href="http://creaticode.com">Creaticode.com</a></h1>
+
+        <div class="pricing-table">
+            <h3 class="pricing-title">Basico</h3>
+            <div class="price">$60<sup>/ mes</sup></div>
+            <!-- Lista de Caracteristicas / Propiedades -->
+            <ul class="table-list">
+                <li>10 GB <span>De almacenamiento</span></li>
+                <li>1 Dominio <span>incluido</span></li>
+                <li>25 GB <span>De transferencia mensual</span></li>
+                <li>Base de datos <span class="unlimited">ilimitadas</span></li>
+                <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
+                <li>CPanel <span>incluido</span></li>
+            </ul>
+            <!-- Contratar / Comprar -->
+            <div class="table-buy">
+                <p>$60<sup>/ mes</sup></p>
+                <a href="#" class="pricing-action">Comprar</a>
+            </div>
+        </div>
+
+        <div class="pricing-table recommended">
+            <h3 class="pricing-title">Premium</h3>
+            <div class="price">$100<sup>/ mes</sup></div>
+            <!-- Lista de Caracteristicas / Propiedades -->
+            <ul class="table-list">
+                <li>35 GB <span>De almacenamiento</span></li>
+                <li>5 Dominios <span>incluidos</span></li>
+                <li>100 GB <span>De transferencia mensual</span></li>
+                <li>Base de datos <span class="unlimited">ilimitadas</span></li>
+                <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
+                <li>CPanel <span>incluido</span></li>
+            </ul>
+            <!-- Contratar / Comprar -->
+            <div class="table-buy">
+                <p>$100<sup>/ mes</sup></p>
+                <a href="#" class="pricing-action">Comprar</a>
+            </div>
+        </div>
+
+        <div class="pricing-table">
+            <h3 class="pricing-title">Ultimate</h3>
+            <div class="price">$200<sup>/ mes</sup></div>
+            <!-- Lista de Caracteristicas / Propiedades -->
+            <ul class="table-list">
+                <li>100 GB <span>De almacenamiento</span></li>
+                <li>8 Dominios <span>incluidos</span></li>
+                <li>200 GB <span>De transferencia mensual</span></li>
+                <li>Base de datos <span class="unlimited">ilimitadas</span></li>
+                <li>Cuentas de correo <span class="unlimited">ilimitadas</span></li>
+                <li>CPanel <span>incluido</span></li>
+            </ul>
+            <!-- Contratar / Comprar -->
+            <div class="table-buy">
+                <p>$200<sup>/ mes</sup></p>
+                <a href="#" class="pricing-action">Comprar</a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+
+</html>
