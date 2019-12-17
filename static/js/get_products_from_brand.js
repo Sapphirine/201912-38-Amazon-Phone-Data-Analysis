@@ -13,6 +13,8 @@ function generateProducts(){
 //
             console.log(product_list);
             $.each(product_list, function(key, value){
+                console.log("this is the value")
+                console.log(value)
                 var product_title = `
                     <option value = ${value}>${value}</option>
                 `

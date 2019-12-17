@@ -1,59 +1,31 @@
+<!DOCTYPE html>
 <html>
-  <style>
-    body{
-      font-size: 15pt;
-      font-family: arial;
-    }
-  </style>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+<style>
 
-<head>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/recommend.js') }}"></script>
-</head>
-
+</style>
 <body>
-  <h1>Search page:</h1>
-  <div></div>
-
-<!--  <div>-->
-<!--    {% for n in data %}-->
-<!--    <div></div>-->
-<!--    {% endfor %}-->
-<!--  </div>-->
 
 
-<select id = "brand_box">
-  <option value="Default" selected="selected">Default</option>
-  {% for brand in brand_list %}
-    <option value ={{brand}}>{{brand}}</option>
-  {% endfor %}
-</select>
-
-<select id = "price_box">
-    <option value = "Default" selected="selected">Default</option>
-    <option value = "<300">$<300</option>
-    <option value = "300-600">$300-600</option>
-    <option value = "600-900">$600-900</option>
-    <option value = ">900">$>900</option>
-</select>
-
-<input type="submit" value="Search" onclick="sendBrand()">
-
-<!--<p>Please make query: <input type="text" name="query"> <input type="submit" value="Search"></p>-->
-
-<p><a href="review_confidence">Go to the other page</a></p>
-
-<!--<div>-->
-<!--    {% for n in result %}-->
-<!--    <div>{{n}}</div>-->
-<!--    {% endfor %}-->
-<!--</div>-->
-  <div id = "my_div" class="pricing-wrapper clearfix">
+<div class="bgimg w3-display-container w3-animate-opacity w3-text-white">
+  <div class="w3-display-topleft w3-padding-large w3-xlarge">
+      <a  href="/">Home</a>
   </div>
-
+  <div class="w3-display-topmiddle w3-padding-large w3-xlarge">
+      <a href="product_recommendation">Recommendation</a>
+      <a href="review_number">Review Distribution</a>
+      <a href="review_confidence">Review Confidentiality </a>
+  </div>
+  <div class="w3-display-middle" style="margin:auto;width:45%">
+    <h1 class="w3-jumbo w3-animate-top ">Amazon Phone Analysis</h1>
+    <hr class="w3-border-grey" style="margin:auto;width:40%">
+  </div>
+</div>
 
 </body>
-
-
 </html>

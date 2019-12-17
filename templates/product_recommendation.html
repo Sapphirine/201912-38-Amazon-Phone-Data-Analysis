@@ -1,0 +1,51 @@
+<html>
+  <style>
+    body{
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/recommend.js') }}"></script>
+</head>
+
+<body>
+      <h1 align="center">Phone Recommendation:</h1>
+      <div></div>
+
+    <!--  <div>-->
+    <!--    {% for n in data %}-->
+    <!--    <div></div>-->
+    <!--    {% endfor %}-->
+    <!--  </div>-->
+
+
+    <select class="select-box" id = "brand_box">
+      <option value="Default" selected="selected">Default</option>
+      {% for brand in brand_list %}
+        <option value ={{brand}}>{{brand}}</option>
+      {% endfor %}
+    </select>
+
+    <select class="select-box" id = "price_box">
+        <option value = "Default" selected="selected">Default</option>
+        <option value = "<300">$<300</option>
+        <option value = "300-600">$300-600</option>
+        <option value = "600-900">$600-900</option>
+        <option value = ">900">$>900</option>
+    </select>
+
+    <input type="submit" value="Search" onclick="sendBrand()">
+<p><a href="\">Go back to home</a></p>
+  <div id = "my_div" class="pricing-wrapper clearfix" >
+  </div>
+
+
+</body>
+
+
+</html>

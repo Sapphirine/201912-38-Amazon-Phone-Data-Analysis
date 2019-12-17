@@ -1,0 +1,20 @@
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+  background-image: url('../img/background.jpg');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.topbar{
+	width: 400px;
+	position: absolute;
+	margin-left: -200px;
+	margin-top: -80px;
+	top: 10%;
+	left: 50%;
+	display: block;
+	z-index: 2000;
+	border: 1px solid #006699;
+}

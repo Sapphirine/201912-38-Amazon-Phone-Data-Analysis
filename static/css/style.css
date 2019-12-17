@@ -22,7 +22,7 @@ ul {
 }
 
 a {
-    color: #e95846;
+    color: #FFF;
     text-decoration: none;
 }
 
@@ -52,8 +52,7 @@ a {
  * Contenedor
  ============================*/
 .pricing-wrapper {
-    width: 960px;
-    margin: 40px auto 0;
+
 }
 
 .pricing-table {

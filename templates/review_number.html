@@ -12,13 +12,40 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/recommend.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/get_review_confidence.js') }}"></script>
-        <script src="https://d3js.org/d3.v4.js"></script>
-    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/show_review_num.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/get_products_from_brand.js') }}"></script>
 </head>
+<style type="text/css">
+/* 13. Basic Styling with CSS */
+
+/* Style the lines by removing the fill and applying a stroke */
+.line {
+    fill: none;
+    stroke: #ffab00;
+    stroke-width: 3;
+}
+
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+
+/* Style the dots by assigning a fill and stroke */
+.dot {
+    fill: #ffab00;
+    stroke: #fff;
+}
+
+  .focus circle {
+  fill: none;
+  stroke: steelblue;
+}
+
+</style>
 
 <body>
-  <h1 align="center">Search page:</h1>
+    <h1 align="center">Search page:</h1>
   <div></div>
 
 <!--  <div>-->
@@ -39,23 +66,22 @@
 
 </select>
 
-<input type="submit" value="Search" onclick="getReviewConfidence()">
+<input type="submit" value="Search" onclick="getReviewNum()">
 
 <!--<p>Please make query: <input type="text" name="query"> <input type="submit" value="Search"></p>-->
 
-<p><a href="\">Go back</a></p>
+<p><a href="\">Go back to home</a></p>
 
 <!--<div>-->
 <!--    {% for n in result %}-->
 <!--    <div>{{n}}</div>-->
 <!--    {% endfor %}-->
 <!--</div>-->
-  <div id = "my_div" style="font-size:30px;position:relative;left:300px;">
-  </div>
+<div id = "my_div" style="font-size:20px;position:relative;left:300px;">
+</div>
 
 
 </body>
 
 
 </html>
-

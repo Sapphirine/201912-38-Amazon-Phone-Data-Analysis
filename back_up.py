@@ -125,11 +125,11 @@ def index():
   # (you can think of it as simple PHP)
   # documentation: https://realpython.com/blog/python/primer-on-jinja-templating/
   #
-  # You can see an example template in templates/index.html
+  # You can see an example template in templates/product_recommendation.html
   #
   # context are the variables that are passed to the template.
   # for example, "data" key in the context variable defined below will be 
-  # accessible as a variable in index.html:
+  # accessible as a variable in product_recommendation.html:
   #
   #     # will print: [u'grace hopper', u'alan turing', u'ada lovelace']
   #     <div>{{data}}</div>
@@ -151,9 +151,9 @@ def index():
 
   #
   # render_template looks in the templates/ folder for files.
-  # for example, the below file reads template/index.html
+  # for example, the below file reads template/product_recommendation.html
   #
-  return render_template("index.html", **context)
+  return render_template("product_recommendation.html", **context)
 
 #
 # This is an example of a different path.  You can see it at:
@@ -174,7 +174,7 @@ def add():
   # name = request.form['name']
   # g.conn.execute('INSERT INTO test VALUES (NULL, ?)', name)
   context = {}
-  return render_template("index.html", **context)
+  return render_template("product_recommendation.html", **context)
 
 
 # @app.route('/login')
