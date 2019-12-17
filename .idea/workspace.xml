@@ -2,23 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="41f200ec-8cf9-4107-a249-d83877353429" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/homepage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/recom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/search.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/show_review_num.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/product_recommendation.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/review_number.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back_up.py" beforeDir="false" afterPath="$PROJECT_DIR$/back_up.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/F1_Handle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/get_products_from_brand.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/get_products_from_brand.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/get_review_confidence.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/get_review_confidence.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/another.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/review_confidence.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/review_confidence.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../amazon phone-003f8ff255c0.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../big data warm up-705a56fa5e82.json" beforeDir="false" />
     </list>
@@ -185,7 +168,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="393" />
     <option name="width" value="981" />
     <option name="height" value="1092" />
@@ -203,29 +186,6 @@
             <path>
               <item name="Flask_WebServer_Template-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="Flask_WebServer_Template-master" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Flask_WebServer_Template-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Flask_WebServer_Template-master" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Flask_WebServer_Template-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Flask_WebServer_Template-master" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Flask_WebServer_Template-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Flask_WebServer_Template-master" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Flask_WebServer_Template-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Flask_WebServer_Template-master" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Flask_WebServer_Template-master" type="b2602c69:ProjectViewProjectNode" />
@@ -330,9 +290,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="735" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22160445" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22160445" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -343,7 +303,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.21890548" />
+      <window_info anchor="bottom" id="Terminal" order="8" visible="true" weight="0.21890548" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
